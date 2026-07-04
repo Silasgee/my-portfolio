@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Silas Gee — Portfolio</title>
+  <meta name="description" content="Personal portfolio of Silas Gee — developer and problem solver.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Sticky navigation with links to each section -->
+  <header class="nav">
+    <nav class="container nav-inner">
+      <a href="#top" class="nav-logo">SG</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="mailto:saferemoteaccess@gmail.com" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero: name, tagline, and call-to-action buttons -->
+  <section class="hero" id="top">
+    <div class="container">
+      <p class="hero-kicker">Hello, I'm</p>
+      <h1 class="hero-name">Silas Gee</h1>
+      <p class="hero-tagline">
+        A developer who enjoys building clean, useful things for the web.
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">View my work</a>
+        <a href="#about" class="btn btn-ghost">About me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About: short bio and a few skills -->
+  <section class="section" id="about">
+    <div class="container">
+      <h2 class="section-title">About</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            I'm a developer based on planet Earth who likes turning ideas into
+            simple, well-crafted software. I care about readable code, fast
+            pages, and interfaces that stay out of the user's way.
+          </p>
+          <p>
+            When I'm not coding, you'll find me reading, tinkering with side
+            projects, or exploring the outdoors.
+          </p>
+        </div>
+        <ul class="skills">
+          <li>HTML &amp; CSS</li>
+          <li>JavaScript</li>
+          <li>Python</li>
+          <li>Git &amp; GitHub</li>
+          <li>Responsive design</li>
+          <li>Accessibility</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects: card grid, one card per project -->
+  <section class="section section-alt" id="projects">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+      <div class="projects-grid">
+        <article class="card">
+          <div class="card-emoji">🌦️</div>
+          <h3>Weather Dashboard</h3>
+          <p>
+            A single-page app that shows current conditions and a 5-day
+            forecast for any city, with a clean chart-based layout.
+          </p>
+          <p class="card-tags">JavaScript · REST API · CSS Grid</p>
+          <a class="card-link" href="#">View project →</a>
+        </article>
+
+        <article class="card">
+          <div class="card-emoji">✅</div>
+          <h3>Task Tracker</h3>
+          <p>
+            A minimalist to-do app with drag-and-drop ordering and local
+            storage, so your list survives a page refresh.
+          </p>
+          <p class="card-tags">JavaScript · LocalStorage · UX</p>
+          <a class="card-link" href="#">View project →</a>
+        </article>
+
+        <article class="card">
+          <div class="card-emoji">📚</div>
+          <h3>Reading Log</h3>
+          <p>
+            A small site for logging books and notes, with search and
+            filtering built entirely with vanilla JavaScript.
+          </p>
+          <p class="card-tags">HTML · CSS · JavaScript</p>
+          <a class="card-link" href="#">View project →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 Silas Gee · <a href="mailto:saferemoteaccess@gmail.com">saferemoteaccess@gmail.com</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>
