@@ -8,9 +8,9 @@ export const site = {
   tagline: "Master the digital skills that pay",
   description:
     "Apex Academy teaches website design, copywriting, Facebook Ads, WhatsApp marketing, TikTok marketing and freelancing — practical, mentor-led courses that turn skills into income.",
-  email: "hello@apexacademy.co",
-  whatsapp: "+233200000000",
-  whatsappHref: "https://wa.me/233200000000",
+  email: "akpabiosilasg@gmail.com",
+whatsapp: "+2349066828238",
+whatsappHref: "https://wa.me/2349066828238",
   socials: [
     { label: "Instagram", href: "https://instagram.com/apexacademy" },
     { label: "TikTok", href: "https://tiktok.com/@apexacademy" },
