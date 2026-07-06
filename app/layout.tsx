@@ -108,8 +108,15 @@ function JsonLd() {
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  // suppressHydrationWarning: browser extensions (dark-mode themers,
+  // Grammarly, translators) inject attributes into <html> before React
+  // hydrates; this silences only attribute mismatches on this element.
   return (
-    <html lang="en" className={`${fraunces.variable} ${manrope.variable}`}>
+    <html
+      lang="en"
+      className={`${fraunces.variable} ${manrope.variable}`}
+      suppressHydrationWarning
+    >
       <body>
         <a
           href="#main"
