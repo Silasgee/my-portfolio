@@ -12,13 +12,19 @@ Print-ready A4 portrait flyer for **Able's Noodles**, Marian, by Old Ikang, Cala
 | `flyer-photo.html` | Alternate hero: swaps the vector bowl illustration for an AI-generated food photograph (loaded from a remote URL — needs internet the first time you open it). Print via the browser the same way. |
 | `src/` | Editable source: layout template, bowl-illustration generator, build + export scripts, fonts (Anton & Montserrat, both OFL-licensed). |
 
-## Before you print — placeholders to replace
+## Menu & contacts (as printed)
 
-- **Phone number**: `0800 000 0000` (footer)
-- **WhatsApp**: currently a generic "WhatsApp Orders" label — add the number
+- Egg Noodles (noodles + fried egg) — ₦1,400
+- Double Egg Noodles — ₦1,700
+- Noodles & Suya — ₦2,700
+- Make It Spicy — free
+- Your Own Combo — customer specifies ("Just Ask")
+- Call / WhatsApp: **0708 206 8174**
+
+## Before you print — confirm
+
 - **Instagram**: `@ablesnoodles` — confirm the handle
-- **Prices**: the menu prices (₦1,000 / ₦1,500 / ₦2,000 / ₦2,500 / ₦500) are **sample placeholders** — set the real ones
-- **QR code**: currently a real, scannable code pointing to `instagram.com/ablesnoodles`. Regenerate if you want it to point elsewhere (see `src/`, the QR is `src/qr.svg`).
+- **QR code**: a real, scannable code pointing to `instagram.com/ablesnoodles`. Regenerate if you want it to point elsewhere (see `src/`, the QR is `src/qr.svg`).
 
 All of these live in plain HTML in `flyer.html` (search for the text) — edit, then re-export.
 
