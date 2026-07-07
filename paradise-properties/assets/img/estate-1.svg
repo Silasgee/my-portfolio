@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" role="img" aria-label="Landscape of a surveyed estate plot at sunrise">
+  <defs>
+    <linearGradient id="sky1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fdf6e3"/>
+      <stop offset="0.6" stop-color="#f3e6c4"/>
+      <stop offset="1" stop-color="#e8d9ad"/>
+    </linearGradient>
+    <linearGradient id="land1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2f7a4c"/>
+      <stop offset="1" stop-color="#175033"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="360" fill="url(#sky1)"/>
+  <circle cx="620" cy="150" r="70" fill="#d4af37" opacity="0.9"/>
+  <circle cx="620" cy="150" r="95" fill="#d4af37" opacity="0.25"/>
+  <path d="M0 300 Q200 240 420 290 T800 270 V560 H0 Z" fill="#3d8a58" opacity="0.55"/>
+  <path d="M0 330 Q240 280 480 330 T800 320 V560 H0 Z" fill="url(#land1)"/>
+  <g stroke="#f1e7c8" stroke-width="3" opacity="0.55" fill="none">
+    <path d="M80 560 L340 380"/>
+    <path d="M300 560 L430 380"/>
+    <path d="M540 560 L520 380"/>
+    <path d="M760 560 L610 380"/>
+    <path d="M40 470 H780"/>
+    <path d="M150 410 H700"/>
+  </g>
+  <g fill="#0b2a1f">
+    <ellipse cx="130" cy="335" rx="46" ry="14" opacity="0.25"/>
+    <path d="M130 250 c-28 0 -46 22 -46 44 0 24 20 40 46 40 s46 -16 46 -40 c0 -22 -18 -44 -46 -44z"/>
+    <rect x="124" y="320" width="12" height="28" rx="4"/>
+    <ellipse cx="690" cy="345" rx="40" ry="12" opacity="0.25"/>
+    <path d="M690 272 c-24 0 -40 18 -40 38 0 20 18 34 40 34 s40 -14 40 -34 c0 -20 -16 -38 -40 -38z"/>
+    <rect x="685" y="332" width="10" height="24" rx="4"/>
+  </g>
+  <g transform="translate(360 300)">
+    <rect x="-14" y="0" width="8" height="70" fill="#8a6b1e"/>
+    <rect x="-40" y="-36" width="80" height="44" rx="6" fill="#faf9f5" stroke="#c9a227" stroke-width="3"/>
+    <path d="M-24 -14 l16 -14 16 14 v16 h-32z" fill="#175033"/>
+  </g>
+</svg>

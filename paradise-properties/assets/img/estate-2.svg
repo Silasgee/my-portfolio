@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" role="img" aria-label="Aerial view of gridded estate plots">
+  <defs>
+    <linearGradient id="land2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1e6a43"/>
+      <stop offset="1" stop-color="#0f3d29"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="560" fill="url(#land2)"/>
+  <g stroke="#f1e7c8" stroke-width="4" opacity="0.5" fill="none">
+    <path d="M0 140 H800"/>
+    <path d="M0 300 H800"/>
+    <path d="M0 450 H800"/>
+    <path d="M180 0 V560"/>
+    <path d="M420 0 V560"/>
+    <path d="M640 0 V560"/>
+  </g>
+  <g fill="#2f7a4c" opacity="0.65">
+    <rect x="196" y="156" width="208" height="128" rx="10"/>
+    <rect x="436" y="316" width="188" height="118" rx="10"/>
+    <rect x="16" y="316" width="148" height="118" rx="10"/>
+  </g>
+  <g fill="#d4af37">
+    <circle cx="300" cy="220" r="26" opacity="0.9"/>
+    <circle cx="530" cy="375" r="20" opacity="0.9"/>
+    <circle cx="90" cy="375" r="16" opacity="0.9"/>
+  </g>
+  <g fill="#0b2a1f" opacity="0.85">
+    <circle cx="720" cy="80" r="34"/>
+    <circle cx="678" cy="102" r="22"/>
+    <circle cx="756" cy="106" r="20"/>
+    <circle cx="80" cy="60" r="26"/>
+    <circle cx="116" cy="78" r="18"/>
+  </g>
+  <g stroke="#faf9f5" stroke-width="3" stroke-dasharray="10 8" opacity="0.7" fill="none">
+    <rect x="196" y="156" width="208" height="128" rx="10"/>
+  </g>
+</svg>

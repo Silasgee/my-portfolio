@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" role="img" aria-label="Estate landscape with palm trees and access road">
+  <defs>
+    <linearGradient id="sky3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#eef7f0"/>
+      <stop offset="1" stop-color="#d9ecd9"/>
+    </linearGradient>
+    <linearGradient id="land3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#35845a"/>
+      <stop offset="1" stop-color="#123626"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="330" fill="url(#sky3)"/>
+  <circle cx="160" cy="120" r="56" fill="#d4af37"/>
+  <path d="M0 280 Q220 230 430 275 T800 260 V560 H0 Z" fill="url(#land3)"/>
+  <path d="M330 560 L390 300 h30 L500 560 Z" fill="#e8dcb5"/>
+  <g stroke="#b8985f" stroke-width="4" stroke-dasharray="18 16" fill="none">
+    <path d="M412 560 L405 300"/>
+  </g>
+  <g fill="#0b2a1f">
+    <path d="M600 210 q-8 60 -6 130 h14 q-2 -70 6 -130z"/>
+    <path d="M604 214 q-45 -28 -84 -10 q40 4 76 22z"/>
+    <path d="M604 214 q45 -28 84 -10 q-40 4 -76 22z"/>
+    <path d="M604 212 q-30 -40 -20 -70 q8 30 30 62z"/>
+    <path d="M606 212 q30 -40 20 -70 q-8 30 -30 62z"/>
+    <path d="M210 250 q-6 46 -5 100 h12 q-1 -54 5 -100z"/>
+    <path d="M214 254 q-36 -22 -66 -8 q32 3 60 17z"/>
+    <path d="M214 254 q36 -22 66 -8 q-32 3 -60 17z"/>
+    <path d="M215 252 q-24 -32 -16 -56 q6 24 24 50z"/>
+  </g>
+  <g opacity="0.5" stroke="#f1e7c8" stroke-width="3" fill="none">
+    <path d="M0 430 H330 M500 430 H800"/>
+    <path d="M60 560 L120 330 M700 560 L650 330"/>
+  </g>
+</svg>
