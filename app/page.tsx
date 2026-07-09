@@ -4,11 +4,13 @@ import CursorGlow from "@/components/site/CursorGlow";
 import Navbar from "@/components/site/Navbar";
 import Footer from "@/components/site/Footer";
 import Hero from "@/components/sections/Hero";
-import Courses from "@/components/sections/Courses";
-import WhyApex from "@/components/sections/WhyApex";
-import Journey from "@/components/sections/Journey";
+import TrustBar from "@/components/sections/TrustBar";
+import Services from "@/components/sections/Services";
+import WhyUs from "@/components/sections/WhyUs";
+import Process from "@/components/sections/Process";
+import BeforeAfter from "@/components/sections/BeforeAfter";
 import Testimonials from "@/components/sections/Testimonials";
-import Stats from "@/components/sections/Stats";
+import Pricing from "@/components/sections/Pricing";
 import Faq from "@/components/sections/Faq";
 import Contact from "@/components/sections/Contact";
 
@@ -20,11 +22,13 @@ export default function Home() {
       <Navbar />
       <main id="main">
         <Hero />
-        <Courses />
-        <WhyApex />
-        <Journey />
+        <TrustBar />
+        <Services />
+        <WhyUs />
+        <Process />
+        <BeforeAfter />
         <Testimonials />
-        <Stats />
+        <Pricing />
         <Faq />
         <Contact />
       </main>

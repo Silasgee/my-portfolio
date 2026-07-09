@@ -3,29 +3,32 @@
 import { useRef, type ReactNode, type MouseEvent } from "react";
 import { motion, useMotionValue, useSpring, useReducedMotion } from "framer-motion";
 
-type Variant = "royal" | "gold" | "ghost-dark" | "ghost-light";
+type Variant = "gold" | "emerald" | "navy" | "ghost-dark" | "ghost-light";
 
 const variants: Record<Variant, string> = {
-  royal:
-    "bg-royal text-white hover:bg-blue-500 shadow-[0_8px_30px_-8px_rgba(37,99,235,0.55)]",
-  gold: "bg-gold text-ink hover:bg-amber-400 shadow-[0_8px_30px_-8px_rgba(245,158,11,0.55)]",
+  gold: "bg-gold text-navy hover:bg-amber-400 shadow-[0_8px_30px_-8px_rgba(245,158,11,0.55)]",
+  emerald:
+    "bg-emerald text-white hover:bg-emerald-deep shadow-[0_8px_30px_-8px_rgba(15,118,110,0.55)]",
+  navy: "bg-navy text-cream hover:bg-navy-soft shadow-[0_8px_30px_-8px_rgba(15,23,42,0.45)]",
   "ghost-dark":
     "border border-white/25 text-white hover:border-white/60 hover:bg-white/5",
   "ghost-light":
-    "border border-ink/20 text-ink hover:border-ink/50 hover:bg-ink/5",
+    "border border-navy/20 text-navy hover:border-navy/50 hover:bg-navy/5",
 };
 
 /**
- * A button/link that gently leans toward the cursor.
- * Falls back to a plain hover state for touch and reduced-motion users.
+ * A pill button/link that gently leans toward the cursor, with the
+ * signature light-sweep on hover. Falls back to a plain hover state
+ * for touch and reduced-motion users.
  */
 export default function MagneticButton({
   href,
   children,
-  variant = "royal",
+  variant = "emerald",
   className = "",
   onClick,
   type,
+  external,
 }: {
   href?: string;
   children: ReactNode;
@@ -33,6 +36,7 @@ export default function MagneticButton({
   className?: string;
   onClick?: () => void;
   type?: "submit" | "button";
+  external?: boolean;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const reduceMotion = useReducedMotion();
@@ -53,7 +57,7 @@ export default function MagneticButton({
     y.set(0);
   }
 
-  const classes = `inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold tracking-wide transition-colors duration-300 ${variants[variant]} ${className}`;
+  const classes = `sheen inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold tracking-wide transition-colors duration-300 ${variants[variant]} ${className}`;
 
   return (
     <motion.div
@@ -64,7 +68,12 @@ export default function MagneticButton({
       className="inline-block"
     >
       {href ? (
-        <a href={href} onClick={onClick} className={classes}>
+        <a
+          href={href}
+          onClick={onClick}
+          className={classes}
+          {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+        >
           {children}
         </a>
       ) : (

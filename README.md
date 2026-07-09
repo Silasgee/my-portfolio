@@ -1,11 +1,9 @@
-# Apex Academy
+# O&F Pristine Solution — Website
 
-A premium marketing website for **Apex Academy** — a digital skills academy teaching
-WordPress website design, copywriting, Facebook Ads, WhatsApp marketing, TikTok
-marketing and freelancing.
-
-Built with **Next.js 15 (App Router) · React 19 · TypeScript · Tailwind CSS v4 ·
-Framer Motion · Lenis**.
+A luxury digital experience for **O&F Pristine Solution**, a premium
+residential and commercial cleaning company in Nigeria. Built to feel at home
+alongside Apple, Airbnb and premium hospitality brands — because people
+aren't buying cleaning; they're buying time, confidence and peace of mind.
 
 ## Quick start
 
@@ -19,89 +17,79 @@ Other scripts:
 ```bash
 npm run build      # production build
 npm run start      # serve the production build
-npm run typecheck  # TypeScript check, no emit
+npm run typecheck  # strict TypeScript check
 ```
 
-## Art direction
+## Design system
 
-A "modern prestige academy" identity, executed consistently:
+| Token     | Value     | Role                                  |
+| --------- | --------- | ------------------------------------- |
+| `navy`    | `#0F172A` | Primary — anchor sections, wordmark   |
+| `emerald` | `#0F766E` | Secondary — links, labels, accents    |
+| `gold`    | `#F59E0B` | Accent — reserved for *light itself*  |
+| `cream`   | `#FAFAF8` | Warm-white canvas                     |
+| `fog`     | `#F3F4F6` | Soft gray section background          |
 
-- **Typography** — [Fraunces](https://fonts.google.com/specimen/Fraunces)
-  (expressive editorial serif) for display headlines, paired with
-  [Manrope](https://fonts.google.com/specimen/Manrope) for body text. Both are
-  self-optimized via `next/font` (zero layout shift, no runtime font requests).
-- **Color** — five colors only, defined once in `app/globals.css`:
-  ink `#0F172A`, royal `#2563EB`, gold `#F59E0B`, white, mist `#F8FAFC`.
-  Gold is used as punctuation (italic highlight words, eyebrows, seams), never
-  as decoration.
-- **Rhythm** — sections alternate ink / white / mist canvases; film-grain and
-  slow gradient orbs keep large navy fields from going flat.
-- **Imagery** — no stock photos. The hero visual is a code-built "student
-  dashboard" illustration; course icons are a hand-drawn SVG set with a shared
-  construction (48px grid, 1.7 stroke, single gold accent).
+**Typography** — Cormorant Garamond (display serif, italics for emphasis)
+paired with Albert Sans (body). Loaded via `next/font` with zero layout shift.
 
-## Motion
+**Signature motifs**
 
-All motion honors `prefers-reduced-motion` and degrades to simple opacity or
-static layouts.
+- *Light is the brand*: the hero is a code-drawn sunlit room (arched window,
+  breathing light shaft, dust motes dissolving) — no stock buckets or mops.
+- *The sheen*: a band of light sweeps across cards and buttons on hover,
+  like the gleam on a just-polished surface (`.sheen` utility).
+- *Before/After*: an interactive comparison slider of one hand-drawn SVG
+  room in two states — driven by an invisible native range input, so drag,
+  click and arrow keys all work.
 
-| Effect | Where |
-| --- | --- |
-| Preloader curtain (apex mark draws in, panel lifts) | `components/site/Preloader.tsx` |
-| Lenis inertial smooth-scroll | `components/site/SmoothScroll.tsx` |
-| Cursor glow (desktop pointers only) | `components/site/CursorGlow.tsx` |
-| Magnetic buttons | `components/ui/MagneticButton.tsx` |
-| Masked word-by-word headline reveals | `components/ui/TextReveal.tsx` |
-| Blur-resolve scroll reveals | `components/ui/Reveal.tsx` |
-| Hero parallax orbs + floating dashboard cards | `components/sections/Hero.tsx` |
-| Scroll-linked gold journey thread | `components/sections/Journey.tsx` |
-| Counter-scrolling testimonial marquees (pause on hover) | `components/sections/Testimonials.tsx` |
-| Spring count-up statistics | `components/ui/CountUp.tsx` |
-
-## Project structure
+## Architecture
 
 ```
 app/
-  layout.tsx            # fonts, metadata, JSON-LD, skip link
-  page.tsx              # section composition
-  globals.css           # design tokens (Tailwind v4 @theme) + utilities
-  icon.svg              # favicon
-  opengraph-image.tsx   # social card, generated at build time
-  robots.ts / sitemap.ts
+  layout.tsx          # fonts, metadata, Open Graph, JSON-LD (LocalBusiness + FAQ)
+  page.tsx            # section composition
+  globals.css         # Tailwind v4 theme tokens, keyframes, utilities
+  opengraph-image.tsx # generated social share card
+  icon.svg            # favicon (sparkle mark)
+  sitemap.ts / robots.ts
+  privacy/ terms/     # legal pages
 components/
-  site/                 # chrome: Navbar, Footer, Logo, Preloader, CursorGlow, SmoothScroll
-  sections/             # Hero, Courses, WhyApex, Journey, Testimonials, Stats, Faq, Contact
-  ui/                   # primitives: MagneticButton, TextReveal, Reveal, CountUp, Eyebrow, CourseIcon
+  site/               # Navbar, Footer, Preloader, CursorGlow, SmoothScroll, Logo
+  sections/           # Hero, TrustBar, Services, WhyUs, Process,
+                      # BeforeAfter, Testimonials, Pricing, Faq, Contact
+  ui/                 # MagneticButton, Reveal, TextReveal, Eyebrow, Sparkle
 lib/
-  site.ts               # site config: name, URL, contacts, nav
-  data.ts               # all marketing copy: courses, reasons, journey, testimonials, stats, FAQs
+  site.ts             # contact details, nav, WhatsApp helpers
+  data.ts             # services, pricing, testimonials, FAQs — edit copy here
 ```
 
-## Editing content
+All copy, prices and contact channels live in `lib/` — content updates never
+touch component code.
 
-All copy lives in `lib/data.ts`; contact details, URL and socials in
-`lib/site.ts`. No component changes are needed to update courses, testimonials,
-stats or FAQs.
+## Engineering notes
 
-The contact form composes a pre-filled WhatsApp message (the audience's primary
-channel) with an email fallback — swap `handleSubmit` in
-`components/sections/Contact.tsx` for an API route when a backend is ready.
+- **Stack**: Next.js 15 (App Router) · React 19 · TypeScript (strict) ·
+  Tailwind CSS v4 · Framer Motion · Lenis smooth scrolling.
+  Framer Motion covers every animation need here; GSAP was deliberately
+  omitted to keep the bundle lean for a Lighthouse-95+ budget.
+- **Booking flow**: the contact form composes a prefilled WhatsApp message —
+  bookings land where the business actually operates, with no backend to
+  host or maintain.
+- **Accessibility**: semantic landmarks, skip link, visible focus rings,
+  ARIA-wired accordion and comparison slider, keyboard operable throughout,
+  and `prefers-reduced-motion` respected by every animation (Lenis, Framer
+  Motion and CSS keyframes all check it).
+- **Performance**: no stock imagery — every visual is CSS/SVG drawn in code;
+  fonts subset via `next/font`; the map iframe lazy-loads; AVIF/WebP enabled
+  for any future photography.
+- **SEO**: per-page metadata, canonical URLs, Open Graph + Twitter cards,
+  generated OG image, `sitemap.xml`, `robots.txt`, and structured data
+  (`LocalBusiness` with service offers, `FAQPage`).
 
-## The invisible expensive stuff
+## Going live
 
-- Semantic landmarks (`header/nav/main/section/footer`), one `h1`, ordered headings
-- WCAG AA: visible focus rings on both light and dark canvases, skip link,
-  `aria-expanded`/`aria-controls` accordion, labelled sections and forms,
-  marquee clones hidden from assistive tech
-- Full keyboard navigability (magnetic buttons are real links/buttons)
-- SEO: canonical metadata, Open Graph + Twitter cards, generated OG image,
-  `robots.txt`, `sitemap.xml`, JSON-LD (`EducationalOrganization`, `Course` ×6,
-  `FAQPage`)
-- Performance: server components by default, `next/font` with `display: swap`,
-  no external requests at runtime, no image payloads (all visuals are code),
-  compressed output, `poweredByHeader` off
-
-## Deployment
-
-Any Node host works. For Vercel: push and import — zero config. Set the real
-production domain in `lib/site.ts` (`site.url`) before launch.
+1. Set the production domain in `lib/site.ts` (`site.url`).
+2. Confirm phone numbers and social handles in `lib/site.ts`.
+3. Adjust prices in `lib/data.ts` as packages evolve.
+4. Deploy (Vercel recommended): `vercel` or connect the repo.

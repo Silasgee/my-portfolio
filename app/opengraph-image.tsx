@@ -1,12 +1,12 @@
 import { ImageResponse } from "next/og";
 import { site } from "@/lib/site";
 
-export const alt = `${site.name} — ${site.tagline}`;
+export const alt = `${site.name} — Premium Cleaning Services in Nigeria`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-/** Social share card, generated at build time — no design tool required. */
-export default function OpenGraphImage() {
+/** Social share card: the sparkle mark over navy, set like the site. */
+export default function OpengraphImage() {
   return new ImageResponse(
     (
       <div
@@ -15,65 +15,64 @@ export default function OpenGraphImage() {
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "space-between",
-          padding: 72,
-          background: "linear-gradient(135deg, #0F172A 0%, #14213f 60%, #0F172A 100%)",
-          color: "white",
+          justifyContent: "center",
+          padding: "80px",
+          background: "linear-gradient(135deg, #0F172A 0%, #1C2A4A 100%)",
           fontFamily: "Georgia, serif",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
-          <svg width="56" height="56" viewBox="0 0 32 32">
-            <path d="M16 4L29 28H3L16 4z" fill="none" stroke="#F8FAFC" strokeOpacity="0.4" strokeWidth="1" />
-            <path d="M16 4l6.5 12H9.5L16 4z" fill="#F59E0B" />
-          </svg>
-          <div style={{ fontSize: 34, fontWeight: 600, letterSpacing: -1 }}>
-            Apex Academy
-          </div>
-        </div>
-
-        <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              fontSize: 84,
-              fontWeight: 500,
-              letterSpacing: -3,
-              lineHeight: 1.05,
-              maxWidth: 900,
-            }}
-          >
-            <div style={{ display: "flex" }}>Master the skills</div>
-            <div style={{ display: "flex", gap: 24 }}>
-              <span>that</span>
-              <span style={{ color: "#F59E0B", fontStyle: "italic" }}>pay.</span>
-            </div>
-          </div>
-          <div
-            style={{
-              fontSize: 28,
-              color: "rgba(248,250,252,0.65)",
-              maxWidth: 820,
-            }}
-          >
-            Websites · Copywriting · Facebook Ads · WhatsApp · TikTok · Freelancing
-          </div>
-        </div>
-
         <div
           style={{
+            position: "absolute",
+            right: -120,
+            top: -120,
+            width: 480,
+            height: 480,
+            borderRadius: 480,
+            background:
+              "radial-gradient(circle at center, rgba(245,158,11,0.28) 0%, rgba(245,158,11,0) 70%)",
             display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            borderTop: "1px solid rgba(248,250,252,0.15)",
-            paddingTop: 28,
-            fontSize: 22,
-            color: "rgba(248,250,252,0.55)",
+          }}
+        />
+        <svg width="72" height="72" viewBox="0 0 24 24" fill="none">
+          <path
+            d="M12 1.5c.9 5.6 4.9 9.6 10.5 10.5C16.9 12.9 12.9 16.9 12 22.5 11.1 16.9 7.1 12.9 1.5 12 7.1 11.1 11.1 7.1 12 1.5z"
+            fill="#F59E0B"
+          />
+        </svg>
+        <div
+          style={{
+            marginTop: 44,
+            fontSize: 30,
+            letterSpacing: 10,
+            color: "rgba(255,255,255,0.6)",
+            textTransform: "uppercase",
+            display: "flex",
           }}
         >
-          <div>4,200+ students trained</div>
-          <div style={{ color: "#F59E0B" }}>apexacademy.co</div>
+          O&F Pristine Solution
+        </div>
+        <div
+          style={{
+            marginTop: 22,
+            fontSize: 72,
+            lineHeight: 1.08,
+            color: "#FAFAF8",
+            maxWidth: 900,
+            display: "flex",
+          }}
+        >
+          Premium cleaning that gives you back your time.
+        </div>
+        <div
+          style={{
+            marginTop: 36,
+            fontSize: 26,
+            color: "#F59E0B",
+            display: "flex",
+          }}
+        >
+          Homes · Offices · Executive Housekeeping — across Nigeria
         </div>
       </div>
     ),

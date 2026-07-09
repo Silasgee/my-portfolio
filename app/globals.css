@@ -1,39 +1,50 @@
 @import "tailwindcss";
 
 /* ------------------------------------------------------------------ */
-/*  Apex Academy design tokens                                         */
-/*  Palette is deliberately restrained: ink, royal, gold, white, mist. */
+/*  O&F Pristine Solution design tokens                                */
+/*  Navy anchors, emerald works, gold is reserved for light itself.    */
 /* ------------------------------------------------------------------ */
 @theme {
-  --color-ink: #0f172a;
-  --color-ink-soft: #1e293b;
-  --color-royal: #2563eb;
+  --color-navy: #0f172a;
+  --color-navy-soft: #1c2a4a;
+  --color-emerald: #0f766e;
+  --color-emerald-deep: #0b5d57;
   --color-gold: #f59e0b;
-  --color-mist: #f8fafc;
+  --color-cream: #fafaf8;
+  --color-fog: #f3f4f6;
 
-  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
-  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-cormorant), ui-serif, Georgia, serif;
+  --font-sans: var(--font-albert), ui-sans-serif, system-ui, sans-serif;
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 
-  --animate-marquee: marquee 48s linear infinite;
-  --animate-orbit: orbit 22s ease-in-out infinite alternate;
+  --animate-drift: drift 11s ease-in-out infinite;
+  --animate-shaft: shaft 14s ease-in-out infinite alternate;
 
-  @keyframes marquee {
-    from {
-      transform: translateX(0);
+  /* Dust motes rising and dissolving — the room being cleared. */
+  @keyframes drift {
+    0% {
+      transform: translate3d(0, 12px, 0);
+      opacity: 0;
     }
-    to {
-      transform: translateX(-50%);
+    35% {
+      opacity: 0.8;
+    }
+    100% {
+      transform: translate3d(14px, -46px, 0);
+      opacity: 0;
     }
   }
 
-  @keyframes orbit {
+  /* The hero light shaft breathing, like sun through a curtain. */
+  @keyframes shaft {
     from {
-      transform: translate3d(-4%, -2%, 0) scale(1);
+      opacity: 0.55;
+      transform: skewX(-12deg) translateX(0);
     }
     to {
-      transform: translate3d(4%, 5%, 0) scale(1.12);
+      opacity: 0.9;
+      transform: skewX(-9deg) translateX(18px);
     }
   }
 }
@@ -44,6 +55,11 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Anchored sections land below the fixed navbar. */
+[id] {
+  scroll-margin-top: 5.5rem;
 }
 
 /* Lenis drives scrolling on capable devices; avoid double smoothing. */
@@ -57,18 +73,18 @@ html.lenis {
 }
 
 body {
-  @apply bg-white font-sans text-ink antialiased;
+  @apply bg-cream font-sans text-navy antialiased;
   text-rendering: optimizeLegibility;
 }
 
 ::selection {
-  background: theme(--color-gold);
-  color: theme(--color-ink);
+  background: theme(--color-emerald);
+  color: theme(--color-cream);
 }
 
 /* Visible, consistent focus for keyboard users only. */
 :focus-visible {
-  outline: 2px solid theme(--color-royal);
+  outline: 2px solid theme(--color-emerald);
   outline-offset: 3px;
   border-radius: 2px;
 }
@@ -95,7 +111,7 @@ body {
 /*  Utilities                                                          */
 /* ------------------------------------------------------------------ */
 
-/* Fine film-grain that keeps large flat navy areas from feeling flat. */
+/* Fine film-grain so large navy planes read as material, not flat ink. */
 .grain::before {
   content: "";
   position: absolute;
@@ -104,6 +120,47 @@ body {
   opacity: 0.5;
   mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Signature interaction: a band of light sweeps across on hover,     */
+/* the gleam of a freshly polished surface. Apply to any card/button. */
+.sheen {
+  position: relative;
+  overflow: hidden;
+}
+
+.sheen::after {
+  content: "";
+  position: absolute;
+  top: -60%;
+  bottom: -60%;
+  left: -30%;
+  width: 34%;
+  pointer-events: none;
+  background: linear-gradient(
+    100deg,
+    transparent 0%,
+    rgb(255 255 255 / 0.32) 50%,
+    transparent 100%
+  );
+  transform: translateX(-160%) rotate(14deg);
+  transition: transform 1.1s var(--ease-out-expo);
+}
+
+.sheen:hover::after,
+.sheen:focus-visible::after,
+.group:hover .sheen::after {
+  transform: translateX(560%) rotate(14deg);
+}
+
+/* Warmer, subtler sheen for cards sitting on light backgrounds. */
+.sheen-gold::after {
+  background: linear-gradient(
+    100deg,
+    transparent 0%,
+    rgb(245 158 11 / 0.12) 50%,
+    transparent 100%
+  );
 }
 
 .text-balance {
@@ -116,5 +173,5 @@ body {
 }
 
 .rule-dark {
-  border-color: rgb(248 250 252 / 0.12);
+  border-color: rgb(250 250 248 / 0.12);
 }

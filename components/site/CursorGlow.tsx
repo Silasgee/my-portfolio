@@ -9,8 +9,8 @@ import {
 } from "framer-motion";
 
 /**
- * A soft royal-blue glow that trails the cursor. Desktop pointer
- * devices only; disabled for touch and reduced-motion users.
+ * A patch of warm sunlight that trails the cursor across the page.
+ * Desktop pointer devices only; disabled for touch and reduced motion.
  */
 export default function CursorGlow() {
   const [enabled, setEnabled] = useState(false);
@@ -37,12 +37,12 @@ export default function CursorGlow() {
   return (
     <motion.div
       aria-hidden="true"
-      className="pointer-events-none fixed left-0 top-0 z-[5] h-[560px] w-[560px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-[0.14] mix-blend-screen"
+      className="pointer-events-none fixed left-0 top-0 z-[5] h-[560px] w-[560px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-[0.09]"
       style={{
         x: sx,
         y: sy,
         background:
-          "radial-gradient(circle at center, #2563EB 0%, transparent 65%)",
+          "radial-gradient(circle at center, #F59E0B 0%, transparent 62%)",
       }}
     />
   );

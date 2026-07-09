@@ -1,8 +1,8 @@
 {
-  "name": "apex-academy",
+  "name": "of-pristine-solution",
   "version": "1.0.0",
   "private": true,
-  "description": "Apex Academy — a premium digital skills academy website. Built with Next.js, TypeScript, Tailwind CSS and Framer Motion.",
+  "description": "O&F Pristine Solution — a luxury website for Nigeria's premium residential and commercial cleaning company. Built with Next.js, TypeScript, Tailwind CSS and Framer Motion.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import Logo from "@/components/site/Logo";
 import MagneticButton from "@/components/ui/MagneticButton";
-import { nav } from "@/lib/site";
+import { nav, site } from "@/lib/site";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -35,29 +35,34 @@ export default function Navbar() {
   }, [open]);
 
   return (
-    <header className="on-dark fixed inset-x-0 top-0 z-50">
+    <header className="fixed inset-x-0 top-0 z-50">
       <div
         className={`transition-all duration-500 ${
           scrolled
-            ? "border-b border-white/10 bg-ink/85 backdrop-blur-xl"
+            ? "border-b border-navy/[0.07] bg-cream/85 backdrop-blur-xl"
             : "bg-transparent"
         }`}
       >
         <nav
           aria-label="Main"
-          className="mx-auto flex h-[4.5rem] max-w-7xl items-center justify-between px-6 md:px-10"
+          className="mx-auto grid h-[4.75rem] max-w-7xl grid-cols-[1fr_auto] items-center px-6 md:px-10 lg:grid-cols-[1fr_auto_1fr]"
         >
-          <a href="#top" aria-label="Apex Academy — home" onClick={() => setOpen(false)}>
-            <Logo dark />
+          <a
+            href="#top"
+            aria-label="O&F Pristine Solution — home"
+            onClick={() => setOpen(false)}
+            className="justify-self-start"
+          >
+            <Logo dark={open} />
           </a>
 
-          {/* Desktop links */}
+          {/* Desktop links, centered */}
           <ul className="hidden items-center gap-8 lg:flex">
             {nav.map((item) => (
               <li key={item.href}>
                 <a
                   href={item.href}
-                  className="group relative text-sm font-medium text-white/75 transition-colors hover:text-white"
+                  className="group relative text-sm font-medium text-navy/70 transition-colors hover:text-navy"
                 >
                   {item.label}
                   <span
@@ -69,34 +74,34 @@ export default function Navbar() {
             ))}
           </ul>
 
-          <div className="hidden lg:block">
-            <MagneticButton href="#contact" variant="gold" className="!px-6 !py-2.5">
-              Enroll now
+          <div className="hidden justify-self-end lg:block">
+            <MagneticButton href="#contact" variant="navy" className="!px-6 !py-2.5">
+              Book Cleaning
             </MagneticButton>
           </div>
 
           {/* Mobile menu toggle */}
           <button
             type="button"
-            className="flex h-11 w-11 flex-col items-center justify-center gap-[5px] rounded-full lg:hidden"
+            className="flex h-11 w-11 flex-col items-center justify-center gap-[5px] justify-self-end rounded-full lg:hidden"
             aria-expanded={open}
             aria-controls="mobile-menu"
             aria-label={open ? "Close menu" : "Open menu"}
             onClick={() => setOpen((v) => !v)}
           >
             <span
-              className={`h-[2px] w-6 rounded bg-white transition-transform duration-300 ${
-                open ? "translate-y-[7px] rotate-45" : ""
+              className={`h-[2px] w-6 rounded transition-all duration-300 ${
+                open ? "translate-y-[7px] rotate-45 bg-white" : "bg-navy"
               }`}
             />
             <span
-              className={`h-[2px] w-6 rounded bg-white transition-opacity duration-300 ${
-                open ? "opacity-0" : ""
+              className={`h-[2px] w-6 rounded transition-opacity duration-300 ${
+                open ? "opacity-0" : "bg-navy"
               }`}
             />
             <span
-              className={`h-[2px] w-6 rounded bg-white transition-transform duration-300 ${
-                open ? "-translate-y-[7px] -rotate-45" : ""
+              className={`h-[2px] w-6 rounded transition-all duration-300 ${
+                open ? "-translate-y-[7px] -rotate-45 bg-white" : "bg-navy"
               }`}
             />
           </button>
@@ -108,25 +113,28 @@ export default function Navbar() {
         {open && (
           <motion.div
             id="mobile-menu"
-            className="fixed inset-0 top-[4.5rem] z-40 flex flex-col justify-between bg-ink px-6 pb-10 pt-8 lg:hidden"
-            initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y: -12 }}
-            animate={reduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
-            exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: -12 }}
-            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+            className="on-dark grain fixed inset-0 -z-10 flex flex-col justify-between overflow-y-auto bg-navy px-6 pb-10 pt-28 lg:hidden"
+            initial={reduceMotion ? { opacity: 0 } : { opacity: 0, clipPath: "inset(0 0 100% 0)" }}
+            animate={reduceMotion ? { opacity: 1 } : { opacity: 1, clipPath: "inset(0 0 0% 0)" }}
+            exit={reduceMotion ? { opacity: 0 } : { opacity: 0, clipPath: "inset(0 0 100% 0)" }}
+            transition={{ duration: 0.55, ease: [0.76, 0, 0.24, 1] }}
           >
-            <ul className="space-y-2">
+            <ul>
               {nav.map((item, i) => (
                 <motion.li
                   key={item.href}
-                  initial={reduceMotion ? { opacity: 0 } : { opacity: 0, x: -16 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.06 * i + 0.1, duration: 0.4 }}
+                  initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 18 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.08 * i + 0.2, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                 >
                   <a
                     href={item.href}
                     onClick={() => setOpen(false)}
-                    className="block border-b border-white/10 py-4 font-display text-3xl text-white"
+                    className="flex items-baseline gap-4 border-b border-white/10 py-4 font-display text-[2rem] font-medium text-white"
                   >
+                    <span className="text-xs font-sans font-semibold tracking-[0.2em] text-gold/70">
+                      0{i + 1}
+                    </span>
                     {item.label}
                   </a>
                 </motion.li>
@@ -135,15 +143,19 @@ export default function Navbar() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.4 }}
+              transition={{ delay: 0.65 }}
+              className="mt-10 space-y-4"
             >
               <a
                 href="#contact"
                 onClick={() => setOpen(false)}
-                className="flex w-full items-center justify-center rounded-full bg-gold py-4 text-base font-semibold text-ink"
+                className="flex w-full items-center justify-center rounded-full bg-gold py-4 text-base font-semibold text-navy"
               >
-                Enroll now
+                Book Cleaning
               </a>
+              <p className="text-center text-xs tracking-wide text-white/50">
+                {site.phones[0].label} · {site.phones[1].label}
+              </p>
             </motion.div>
           </motion.div>
         )}

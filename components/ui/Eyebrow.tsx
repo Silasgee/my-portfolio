@@ -12,7 +12,7 @@ export default function Eyebrow({
   return (
     <p
       className={`flex items-center gap-3 text-xs font-bold uppercase tracking-[0.28em] ${
-        dark ? "text-gold" : "text-royal"
+        dark ? "text-gold" : "text-emerald"
       }`}
     >
       <span aria-hidden className="h-px w-8 bg-gold" />
