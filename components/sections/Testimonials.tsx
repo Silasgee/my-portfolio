@@ -52,7 +52,7 @@ export default function Testimonials() {
           />
           <Reveal delay={0.2}>
             <p className="max-w-sm text-base leading-relaxed text-navy/60">
-              From Lekki to Maitama — what clients say after the team leaves
+              From Ekorinim to Marian — what clients say after the team leaves
               and the light comes in.
             </p>
           </Reveal>

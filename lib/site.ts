@@ -29,7 +29,7 @@ export const site = {
       href: "https://www.tiktok.com/@ofpristinesolution",
     },
   ],
-  areaServed: "Lagos and major cities across Nigeria",
+  areaServed: "Calabar and across Cross River State",
 } as const;
 
 export const nav = [

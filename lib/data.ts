@@ -92,7 +92,7 @@ export const features: Feature[] = [
   },
   {
     title: "Trusted by families",
-    body: "Homes across Lagos and beyond trust us with their keys, their spaces and their routines.",
+    body: "Homes across Calabar and beyond trust us with their keys, their spaces and their routines.",
     icon: "home",
   },
   {
@@ -136,36 +136,36 @@ export type Testimonial = {
 
 export const testimonials: Testimonial[] = [
   {
-    name: "Adaeze O.",
-    location: "Lekki Phase 1, Lagos",
+    name: "Arit Effiong",
+    location: "State Housing Estate, Calabar",
     rating: 5,
     review:
       "They cleaned my three-bedroom before a family event and I honestly kept staring at the kitchen. Every handle, every tile. It felt like moving into a new apartment.",
   },
   {
-    name: "Tunde A.",
-    location: "Ikoyi, Lagos",
+    name: "Ubong Bassey",
+    location: "Ekorinim, Calabar",
     rating: 5,
     review:
       "I travel constantly, so I'm on the premium housekeeping plan. I come home every week to a hotel-standard flat without lifting a finger. Worth every naira.",
   },
   {
-    name: "Mrs. Bello",
-    location: "Maitama, Abuja",
+    name: "Mrs. Asuquo",
+    location: "Diamond Hill, Calabar",
     rating: 5,
     review:
       "Professional from the first call. They arrived on time, worked quietly and left my home smelling clean — not chemical. My children have allergies, so that matters.",
   },
   {
-    name: "Chidinma E.",
-    location: "Victoria Island, Lagos",
+    name: "Idara Etim",
+    location: "Marian, Calabar",
     rating: 5,
     review:
       "We used them for our office move-in after renovation. Post-construction dust everywhere — gone in a day. The team even did a walkthrough with me at the end.",
   },
   {
-    name: "Emeka N.",
-    location: "GRA, Port Harcourt",
+    name: "Emem Okon",
+    location: "Federal Housing, Calabar",
     rating: 5,
     review:
       "Our office is cleaned before staff resume every Monday. Clients comment on it. It's the easiest vendor relationship I manage — they just deliver.",

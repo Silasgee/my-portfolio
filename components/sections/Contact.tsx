@@ -77,7 +77,7 @@ function BookingForm() {
         <input
           id="bf-property"
           name="property"
-          placeholder="e.g. Three bedroom, Lekki"
+          placeholder="e.g. Three bedroom, Ekorinim"
           className={inputClasses}
         />
       </div>
@@ -193,12 +193,12 @@ export default function Contact() {
                     />
                   </svg>
                   <p className="text-xs font-semibold uppercase tracking-[0.2em]">
-                    Lagos, Nigeria
+                    Calabar, Nigeria
                   </p>
                 </div>
                 <iframe
-                  title="O&F Pristine Solution service area — Lagos, Nigeria"
-                  src="https://www.google.com/maps?q=Lagos,+Nigeria&z=10&output=embed"
+                  title="O&F Pristine Solution service area — Calabar, Nigeria"
+                  src="https://www.google.com/maps?q=Calabar,+Nigeria&z=12&output=embed"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   className="absolute inset-0 h-full w-full border-0 grayscale-[35%]"

@@ -60,7 +60,7 @@ export default function WhyUs() {
             <p className="max-w-lg text-base leading-relaxed text-white/60 lg:mt-14">
               O&amp;F Pristine Solution exists for one reason: your time and
               peace of mind are worth more than a chore list. We bring
-              hotel-standard housekeeping discipline into Nigerian homes and
+              hotel-standard housekeeping discipline into Calabar homes and
               businesses — trained teams, professional equipment, eco-friendly
               products and a guarantee we actually honour.
             </p>
