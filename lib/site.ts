@@ -1,28 +1,50 @@
 /**
- * Central site configuration. Update the URL and contact details here
- * once the production domain and channels are live.
+ * Central site configuration for O&F Pristine Solution.
+ * Update the production URL and social handles here once live.
  */
 export const site = {
-  name: "Apex Academy",
-  url: "https://apexacademy.co",
-  tagline: "Master the digital skills that pay",
+  name: "O&F Pristine Solution",
+  shortName: "O&F Pristine",
+  url: "https://ofpristinesolution.ng",
+  tagline: "Premium cleaning that gives you back your time",
   description:
-    "Apex Academy teaches website design, copywriting, Facebook Ads, WhatsApp marketing, TikTok marketing and freelancing — practical, mentor-led courses that turn skills into income.",
-  email: "akpabiosilasg@gmail.com",
-whatsapp: "+2349066828238",
-whatsappHref: "https://wa.me/2349066828238",
-  socials: [
-    { label: "Instagram", href: "https://instagram.com/apexacademy" },
-    { label: "TikTok", href: "https://tiktok.com/@apexacademy" },
-    { label: "YouTube", href: "https://youtube.com/@apexacademy" },
-    { label: "X (Twitter)", href: "https://x.com/apexacademy" },
+    "O&F Pristine Solution is Nigeria's premium residential and commercial cleaning company. Trained professionals, eco-friendly products and hotel-standard attention to detail — for homes, offices and executive housekeeping.",
+  phones: [
+    { label: "0913 919 2450", href: "tel:+2349139192450" },
+    { label: "0903 934 3495", href: "tel:+2349039343495" },
   ],
+  whatsapp: {
+    label: "0913 919 2450",
+    href: "https://wa.me/2349139192450",
+  },
+  socials: [
+    {
+      label: "Instagram",
+      handle: "@pristinesolution.ng",
+      href: "https://instagram.com/pristinesolution.ng",
+    },
+    {
+      label: "TikTok",
+      handle: "@O&Fpristinesolution",
+      href: "https://www.tiktok.com/@ofpristinesolution",
+    },
+  ],
+  areaServed: "Calabar and across Cross River State",
 } as const;
 
 export const nav = [
-  { label: "Courses", href: "#courses" },
-  { label: "Why Apex", href: "#why-apex" },
-  { label: "Journey", href: "#journey" },
-  { label: "Stories", href: "#testimonials" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Home", href: "#top" },
+  { label: "Services", href: "#services" },
+  { label: "About", href: "#about" },
+  { label: "Pricing", href: "#pricing" },
+  { label: "Testimonials", href: "#testimonials" },
+  { label: "Contact", href: "#contact" },
 ] as const;
+
+/** Builds a prefilled WhatsApp booking link. */
+export function whatsappLink(message: string) {
+  return `${site.whatsapp.href}?text=${encodeURIComponent(message)}`;
+}
+
+export const bookingMessage =
+  "Hello O&F Pristine Solution! I'd like to book a cleaning. Could you share your availability?";

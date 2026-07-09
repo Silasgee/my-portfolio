@@ -1,251 +1,237 @@
 /**
- * All marketing content lives here so copy can be edited
+ * All page content lives here so copy and pricing can be updated
  * without touching component code.
  */
 
-export type Course = {
+export type Service = {
   slug: string;
   title: string;
-  icon:
-    | "wordpress"
-    | "copywriting"
-    | "facebook"
-    | "whatsapp"
-    | "tiktok"
-    | "freelancing";
-  kicker: string;
+  range: string;
   description: string;
-  outcomes: string[];
-  duration: string;
-  level: string;
+  items: string[];
+  note?: string;
+  featured?: boolean;
 };
 
-export const courses: Course[] = [
+export const services: Service[] = [
   {
-    slug: "wordpress-website-design",
-    title: "WordPress Website Design",
-    icon: "wordpress",
-    kicker: "Build & launch",
+    slug: "home-cleaning",
+    title: "Home Cleaning",
+    range: "₦40,000 – ₦100,000",
     description:
-      "Design, build and launch professional websites clients happily pay for — no code required.",
-    outcomes: [
-      "Build client-ready sites from a blank canvas",
-      "Master themes, Elementor & custom layouts",
-      "Handle domains, hosting & going live",
-      "Speed, security & on-page SEO essentials",
+      "A deep, detail-first clean for apartments and family homes — every surface, corner and fitting brought back to pristine.",
+    items: [
+      "Self contain",
+      "One bedroom",
+      "Two bedroom",
+      "Three bedroom",
+      "Four bedroom",
+      "Five bedroom",
     ],
-    duration: "6 weeks",
-    level: "Beginner friendly",
   },
   {
-    slug: "copywriting",
-    title: "Copywriting",
-    icon: "copywriting",
-    kicker: "Words that sell",
+    slug: "commercial-cleaning",
+    title: "Commercial Cleaning",
+    range: "₦50,000 – ₦150,000",
     description:
-      "Learn to write persuasive copy that turns readers into buyers — for pages, ads and emails.",
-    outcomes: [
-      "Persuasion frameworks: AIDA, PAS & more",
-      "Sales pages & email sequences that convert",
-      "Hooks, headlines & storytelling",
-      "Land your first paying copy clients",
-    ],
-    duration: "5 weeks",
-    level: "Beginner friendly",
+      "Spotless, presentation-ready spaces for businesses — from daily offices to handovers and post-construction sites.",
+    items: ["Offices", "Move in", "Move out", "Events", "Post construction"],
   },
   {
-    slug: "facebook-ads",
-    title: "Facebook Ads",
-    icon: "facebook",
-    kicker: "Paid traffic",
+    slug: "executive-housekeeping",
+    title: "Executive Housekeeping",
+    range: "₦50,000 – ₦200,000",
     description:
-      "Run profitable ad campaigns from scratch — targeting, creatives, budgets and scaling.",
-    outcomes: [
-      "Campaign structure that actually converts",
-      "Laser-focused audience targeting",
-      "Ad creatives & copy people click",
-      "Read metrics, cut waste, scale winners",
-    ],
-    duration: "6 weeks",
-    level: "Intermediate",
-  },
-  {
-    slug: "whatsapp-marketing",
-    title: "WhatsApp Marketing",
-    icon: "whatsapp",
-    kicker: "Sell in the chat",
-    description:
-      "Turn your contact list into a sales channel with broadcasts, status selling and automation.",
-    outcomes: [
-      "Grow an audience that's ready to buy",
-      "Broadcasts, catalogs & WhatsApp Business",
-      "Status strategies that quietly sell",
-      "Close deals in the chat with confidence",
-    ],
-    duration: "4 weeks",
-    level: "Beginner friendly",
-  },
-  {
-    slug: "tiktok-marketing",
-    title: "TikTok Marketing",
-    icon: "tiktok",
-    kicker: "Organic reach",
-    description:
-      "Crack the algorithm, grow an audience fast and turn short-form attention into income.",
-    outcomes: [
-      "Hooks & content strategy that gets views",
-      "Understand the algorithm — post smarter",
-      "Grow followers consistently, not by luck",
-      "Monetize: brand deals, traffic & sales",
-    ],
-    duration: "5 weeks",
-    level: "Beginner friendly",
-  },
-  {
-    slug: "freelancing",
-    title: "Freelancing",
-    icon: "freelancing",
-    kicker: "Get paid globally",
-    description:
-      "Package your skills, win clients on global platforms and build a reliable freelance income.",
-    outcomes: [
-      "Profiles that win jobs on Upwork & Fiverr",
-      "Pricing, proposals & positioning",
-      "Client communication & delivery systems",
-      "From first gig to recurring income",
-    ],
-    duration: "4 weeks",
-    level: "All levels",
+      "A recurring housekeeping plan with a dedicated team, so your home simply stays perfect — without you thinking about it.",
+    items: ["Basic plan — twice every month", "Premium plan — once every week, for one month"],
+    note: "Most booked",
+    featured: true,
   },
 ];
 
-export const reasons = [
+export const trustItems = [
+  "Residential cleaning",
+  "Commercial cleaning",
+  "Executive housekeeping",
+  "Eco-friendly products",
+  "Satisfaction guarantee",
+] as const;
+
+export type Feature = { title: string; body: string; icon: string };
+
+export const features: Feature[] = [
   {
-    number: "01",
-    title: "Learn by building, not watching",
-    body: "Every module ends with a real deliverable — a live website, a published ad campaign, a portfolio piece. You graduate with proof, not just notes.",
+    title: "Highly trained professionals",
+    body: "Vetted, uniformed and trained to hotel housekeeping standards before they ever enter your home.",
+    icon: "team",
   },
   {
-    number: "02",
-    title: "Mentors who answer",
-    body: "Weekly live sessions and an active community mean you're never stuck for long. Ask a question in the morning, apply the answer by evening.",
+    title: "Modern equipment",
+    body: "Professional-grade machines and microfibre systems that clean deeper than domestic tools can.",
+    icon: "equipment",
   },
   {
-    number: "03",
-    title: "Skills chosen for income",
-    body: "We only teach what clients actually pay for right now. The curriculum is rebuilt every quarter around real market demand — nothing academic, nothing outdated.",
+    title: "Eco-friendly products",
+    body: "Safe for children, pets and allergy-sensitive households — tough only on dirt.",
+    icon: "leaf",
   },
   {
-    number: "04",
-    title: "A certificate backed by a portfolio",
-    body: "Finish with an Apex certificate and a portfolio of real work — the combination that gets replies from clients and employers.",
+    title: "Honest pricing",
+    body: "Clear ranges published upfront. Your final quote is confirmed before any work begins.",
+    icon: "pricing",
+  },
+  {
+    title: "Reliable scheduling",
+    body: "We arrive when we say we will. Your time is the whole point of hiring us.",
+    icon: "clock",
+  },
+  {
+    title: "Attention to detail",
+    body: "Skirting boards, switch plates, door tops — the places others skip are where we start.",
+    icon: "detail",
+  },
+  {
+    title: "Trusted by families",
+    body: "Homes across Calabar and beyond trust us with their keys, their spaces and their routines.",
+    icon: "home",
+  },
+  {
+    title: "Satisfaction guaranteed",
+    body: "If anything falls short of pristine, we return and make it right — at no extra cost.",
+    icon: "guarantee",
   },
 ];
 
-export const journey = [
+export type ProcessStep = { title: string; body: string };
+
+export const processSteps: ProcessStep[] = [
   {
-    step: "01",
-    title: "Enroll & get oriented",
-    body: "Pick your course, meet your cohort and set your income goal. Your roadmap is ready on day one.",
+    title: "Book",
+    body: "Call, WhatsApp or use the form. Tell us about your space and pick a time that suits you.",
   },
   {
-    step: "02",
-    title: "Learn & practice live",
-    body: "Short, focused lessons paired with weekly live sessions. Practice immediately — feedback comes fast.",
+    title: "Inspection",
+    body: "We assess the property and condition, then confirm a precise quote — no surprises later.",
   },
   {
-    step: "03",
-    title: "Build your portfolio",
-    body: "Work on real briefs, not toy exercises. Ship projects you can proudly show a paying client.",
+    title: "Professional cleaning",
+    body: "A trained team arrives on schedule with equipment and eco-friendly products, and gets to work.",
   },
   {
-    step: "04",
-    title: "Get hired & earn",
-    body: "Graduate into our freelance launchpad: profile reviews, proposal templates and your first client roadmap.",
+    title: "Quality check",
+    body: "A supervisor walks the space against our checklist before we consider the job done.",
+  },
+  {
+    title: "Enjoy your space",
+    body: "Step into a home or office that feels brand new — and spend your time on what matters.",
   },
 ];
 
-export const testimonials = [
+export type Testimonial = {
+  name: string;
+  location: string;
+  rating: number;
+  review: string;
+};
+
+export const testimonials: Testimonial[] = [
   {
-    quote:
-      "Three months after the WordPress course I closed my first ₵4,000 client. The portfolio projects we built in class were literally what convinced them.",
-    name: "Kwame Mensah",
-    role: "Freelance Web Designer, Accra",
-    course: "WordPress Website Design",
+    name: "Arit Effiong",
+    location: "State Housing Estate, Calabar",
+    rating: 5,
+    review:
+      "They cleaned my three-bedroom before a family event and I honestly kept staring at the kitchen. Every handle, every tile. It felt like moving into a new apartment.",
   },
   {
-    quote:
-      "I ran my first Facebook ad campaign for my mum's shop as a class project. It tripled her weekly orders — she still thinks I'm a wizard.",
-    name: "Amara Okafor",
-    role: "Media Buyer, Lagos",
-    course: "Facebook Ads",
+    name: "Ubong Bassey",
+    location: "Ekorinim, Calabar",
+    rating: 5,
+    review:
+      "I travel constantly, so I'm on the premium housekeeping plan. I come home every week to a hotel-standard flat without lifting a finger. Worth every naira.",
   },
   {
-    quote:
-      "The copywriting course paid for itself with one client. I went from writing for free to charging properly, because I finally understood why the words work.",
-    name: "Fatima Bello",
-    role: "Conversion Copywriter",
-    course: "Copywriting",
+    name: "Mrs. Asuquo",
+    location: "Diamond Hill, Calabar",
+    rating: 5,
+    review:
+      "Professional from the first call. They arrived on time, worked quietly and left my home smelling clean — not chemical. My children have allergies, so that matters.",
   },
   {
-    quote:
-      "I thought WhatsApp was just for chatting. Now my status is a storefront — I've sold more in six weeks than the previous six months.",
-    name: "Grace Adeyemi",
-    role: "E-commerce Founder",
-    course: "WhatsApp Marketing",
+    name: "Idara Etim",
+    location: "Marian, Calabar",
+    rating: 5,
+    review:
+      "We used them for our office move-in after renovation. Post-construction dust everywhere — gone in a day. The team even did a walkthrough with me at the end.",
   },
   {
-    quote:
-      "From 200 followers to 40k in four months, and my first brand deal. The hooks framework alone was worth the fee.",
-    name: "Daniel Osei",
-    role: "Content Creator",
-    course: "TikTok Marketing",
-  },
-  {
-    quote:
-      "The freelancing course fixed my Upwork profile in week one. By week four I had two contracts. It's a system, and it works.",
-    name: "Samuel Ansah",
-    role: "Freelance Marketer",
-    course: "Freelancing",
+    name: "Emem Okon",
+    location: "Federal Housing, Calabar",
+    rating: 5,
+    review:
+      "Our office is cleaned before staff resume every Monday. Clients comment on it. It's the easiest vendor relationship I manage — they just deliver.",
   },
 ];
 
-export const stats = [
-  { value: 4200, suffix: "+", label: "Students trained" },
-  { value: 15, suffix: "+", label: "Countries represented" },
-  { value: 87, suffix: "%", label: "Earning within 90 days" },
-  { value: 4.9, suffix: "/5", label: "Average student rating", decimals: 1 },
+export type Faq = { question: string; answer: string };
+
+export const faqs: Faq[] = [
+  {
+    question: "How do I book a cleaning?",
+    answer:
+      "Call or WhatsApp us on 0913 919 2450 or 0903 934 3495, message us on Instagram @pristinesolution.ng, or use the booking form on this page. We'll confirm your date, scope and quote the same day.",
+  },
+  {
+    question: "Do you bring your own supplies and equipment?",
+    answer:
+      "Yes. Every team arrives fully equipped with professional machines, microfibre systems and eco-friendly products. You don't need to provide anything — just access to the space.",
+  },
+  {
+    question: "How long does a cleaning take?",
+    answer:
+      "It depends on the size and condition of the property. A one-bedroom deep clean typically takes 3–4 hours; larger homes and post-construction jobs can take a full day. We confirm timing during inspection.",
+  },
+  {
+    question: "Do you clean offices and commercial spaces?",
+    answer:
+      "Yes — offices, event venues, move-ins, move-outs and post-construction sites. We work around your business hours, including evenings and weekends, so operations are never disrupted.",
+  },
+  {
+    question: "Do you offer recurring cleaning?",
+    answer:
+      "Yes. Our Executive Housekeeping plans cover recurring service: the Basic plan is twice a month, and the Premium plan is weekly. Both come with a dedicated, consistent team.",
+  },
+  {
+    question: "Do you clean after construction or renovation?",
+    answer:
+      "Absolutely. Post-construction cleaning is one of our specialties — dust extraction, paint spot removal, window detailing and a full polish so the space is ready to occupy.",
+  },
 ];
 
-export const faqs = [
+/** Pricing detail rows, presented like a hotel menu. */
+export const priceList = [
   {
-    question: "I'm a complete beginner. Can I still join?",
-    answer:
-      "Absolutely — most Apex students start from zero. Every course begins with fundamentals and moves step by step. If you can use a smartphone or laptop, you can learn these skills.",
+    group: "Home cleaning",
+    rows: [
+      { label: "Self contain", range: "from ₦40,000" },
+      { label: "One – two bedroom", range: "₦50,000 – ₦65,000" },
+      { label: "Three – four bedroom", range: "₦65,000 – ₦85,000" },
+      { label: "Five bedroom", range: "₦85,000 – ₦100,000" },
+    ],
   },
   {
-    question: "What equipment do I need?",
-    answer:
-      "A smartphone and a stable internet connection are enough to start. A laptop helps for the WordPress and Freelancing tracks, but many students complete their first projects on mobile.",
+    group: "Commercial cleaning",
+    rows: [
+      { label: "Offices", range: "₦50,000 – ₦100,000" },
+      { label: "Move in / move out", range: "₦60,000 – ₦120,000" },
+      { label: "Events", range: "₦60,000 – ₦120,000" },
+      { label: "Post construction", range: "₦80,000 – ₦150,000" },
+    ],
   },
   {
-    question: "Are classes live or self-paced?",
-    answer:
-      "Both. Core lessons are recorded so you learn on your schedule, and every week there's a live session with your mentor for feedback, Q&A and accountability.",
+    group: "Executive housekeeping",
+    rows: [
+      { label: "Basic — twice every month", range: "₦50,000 – ₦120,000" },
+      { label: "Premium — weekly, for one month", range: "₦120,000 – ₦200,000" },
+    ],
   },
-  {
-    question: "Do I get a certificate?",
-    answer:
-      "Yes — every graduate receives a verifiable Apex Academy certificate. More importantly, you finish with a portfolio of real projects, which is what clients actually ask for.",
-  },
-  {
-    question: "Will you help me find clients or a job?",
-    answer:
-      "Our Freelance Launchpad is built into every course: profile reviews, proposal templates, pricing guidance and a first-client roadmap. Graduates also get priority access to gigs shared in our community.",
-  },
-  {
-    question: "Can I pay in installments?",
-    answer:
-      "Yes. Every course offers a two-part payment plan, and we run scholarship spots each cohort. Message us on WhatsApp and we'll find an option that works for you.",
-  },
-];
+] as const;

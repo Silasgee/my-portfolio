@@ -1,111 +1,92 @@
 "use client";
 
-import { useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import Eyebrow from "@/components/ui/Eyebrow";
-import TextReveal from "@/components/ui/TextReveal";
 import Reveal from "@/components/ui/Reveal";
+import TextReveal from "@/components/ui/TextReveal";
 import { testimonials } from "@/lib/data";
 
-function initials(name: string) {
-  return name
-    .split(" ")
-    .map((part) => part[0])
-    .join("");
-}
-
-function Card({
-  quote,
-  name,
-  role,
-  course,
-}: (typeof testimonials)[number]) {
+function Stars({ rating, name }: { rating: number; name: string }) {
   return (
-    <figure className="flex w-[20rem] shrink-0 flex-col justify-between rounded-3xl border border-ink/[0.08] bg-white p-7 shadow-[0_10px_40px_-20px_rgba(15,23,42,0.12)] sm:w-[24rem]">
-      <blockquote className="text-[0.95rem] leading-relaxed text-ink/75">
-        <span aria-hidden className="mb-3 block font-display text-4xl leading-none text-gold">
-          “
-        </span>
-        {quote}
-      </blockquote>
-      <figcaption className="mt-6 flex items-center gap-3 border-t border-ink/[0.07] pt-5">
-        <span
-          aria-hidden
-          className="flex h-11 w-11 items-center justify-center rounded-full bg-ink font-display text-sm text-gold"
-        >
-          {initials(name)}
-        </span>
-        <div>
-          <p className="text-sm font-bold text-ink">{name}</p>
-          <p className="text-xs text-ink/50">
-            {role} · <span className="text-royal">{course}</span>
-          </p>
-        </div>
-      </figcaption>
-    </figure>
+    <div
+      className="flex gap-1"
+      role="img"
+      aria-label={`${rating} out of 5 stars from ${name}`}
+    >
+      {Array.from({ length: rating }).map((_, i) => (
+        <svg key={i} viewBox="0 0 16 16" className="h-3.5 w-3.5 text-gold" fill="currentColor" aria-hidden>
+          <path d="M8 1l2 4.3 4.7.6-3.5 3.2.9 4.6L8 11.5l-4.1 2.2.9-4.6L1.3 5.9 6 5.3 8 1z" />
+        </svg>
+      ))}
+    </div>
   );
 }
 
-/**
- * Two counter-scrolling marquee rows that pause on hover.
- * Reduced-motion users get a static responsive grid instead.
- */
+/** Monogram avatar — honest, no fake stock faces. */
+function Monogram({ name, index }: { name: string; index: number }) {
+  const palettes = ["bg-emerald text-white", "bg-navy text-gold", "bg-gold text-navy"];
+  return (
+    <span
+      aria-hidden
+      className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full font-display text-lg font-semibold ${palettes[index % palettes.length]}`}
+    >
+      {name.charAt(0)}
+    </span>
+  );
+}
+
 export default function Testimonials() {
   const reduceMotion = useReducedMotion();
-  const rowA = testimonials.slice(0, 3);
-  const rowB = testimonials.slice(3);
 
   return (
-    <section
-      id="testimonials"
-      className="overflow-hidden bg-white"
-      aria-labelledby="testimonials-title"
-    >
-      <div className="mx-auto max-w-7xl px-6 pt-24 md:px-10 md:pt-36">
-        <div className="max-w-2xl">
-          <Eyebrow>Student stories</Eyebrow>
+    <section id="testimonials" className="bg-cream py-24 lg:py-36" aria-label="Testimonials">
+      <div className="mx-auto max-w-7xl px-6 md:px-10">
+        <Reveal>
+          <Eyebrow>Client stories</Eyebrow>
+        </Reveal>
+        <div className="mt-6 flex flex-wrap items-end justify-between gap-6">
           <TextReveal
-            as="h2"
-            id="testimonials-title"
-            text="Real students. Real invoices."
-            highlight="invoices."
-            className="mt-5 font-display text-4xl font-medium leading-[1.08] tracking-tight text-ink sm:text-5xl"
+            text="Trusted in homes like yours."
+            highlight="yours."
+            className="max-w-xl font-display text-4xl font-medium leading-[1.08] tracking-tight text-navy sm:text-5xl"
           />
+          <Reveal delay={0.2}>
+            <p className="max-w-sm text-base leading-relaxed text-navy/60">
+              From Ekorinim to Marian — what clients say after the team leaves
+              and the light comes in.
+            </p>
+          </Reveal>
+        </div>
+
+        <div className="mt-14 columns-1 gap-6 sm:columns-2 lg:columns-3 [&>*]:mb-6 [&>*]:break-inside-avoid">
+          {testimonials.map((t, i) => (
+            <Reveal key={t.name} delay={(i % 3) * 0.1}>
+              <motion.figure
+                animate={reduceMotion ? undefined : { y: [0, -6, 0] }}
+                transition={{
+                  duration: 6 + (i % 3) * 1.4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: i * 0.8,
+                }}
+                className="sheen sheen-gold rounded-[1.5rem] border border-navy/[0.07] bg-white p-7 shadow-[0_24px_50px_-35px_rgba(15,23,42,0.4)]"
+              >
+                <Stars rating={t.rating} name={t.name} />
+                <blockquote className="mt-4 text-[0.95rem] leading-relaxed text-navy/75">
+                  “{t.review}”
+                </blockquote>
+                <figcaption className="mt-6 flex items-center gap-3 border-t rule-light pt-5">
+                  <Monogram name={t.name} index={i} />
+                  <div>
+                    <p className="text-sm font-semibold text-navy">{t.name}</p>
+                    <p className="text-xs text-navy/50">{t.location}</p>
+                  </div>
+                </figcaption>
+              </motion.figure>
+            </Reveal>
+          ))}
         </div>
       </div>
-
-      {reduceMotion ? (
-        <div className="mx-auto grid max-w-7xl gap-6 px-6 py-16 sm:grid-cols-2 md:px-10 lg:grid-cols-3">
-          {testimonials.map((t) => (
-            <Card key={t.name} {...t} />
-          ))}
-        </div>
-      ) : (
-        <div className="space-y-6 py-16">
-          {[rowA, rowB].map((row, i) => (
-            <div
-              key={i}
-              className="group relative flex overflow-hidden"
-              style={{
-                maskImage:
-                  "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
-              }}
-            >
-              <div
-                className={`flex animate-marquee gap-6 pr-6 group-hover:[animation-play-state:paused] ${
-                  i === 1 ? "[animation-direction:reverse]" : ""
-                }`}
-              >
-                {/* Row duplicated for a seamless loop; clones hidden from AT */}
-                {[...row, ...row].map((t, j) => (
-                  <div key={j} aria-hidden={j >= row.length}>
-                    <Card {...t} />
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
     </section>
   );
 }

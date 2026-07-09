@@ -1,50 +1,50 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Manrope } from "next/font/google";
+import { Cormorant_Garamond, Albert_Sans } from "next/font/google";
 import "./globals.css";
 import { site } from "@/lib/site";
-import { courses, faqs } from "@/lib/data";
+import { services, faqs } from "@/lib/data";
 
-const fraunces = Fraunces({
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  variable: "--font-fraunces",
+  weight: ["500", "600"],
   style: ["normal", "italic"],
-  axes: ["opsz", "SOFT", "WONK"],
+  variable: "--font-cormorant",
   display: "swap",
 });
 
-const manrope = Manrope({
+const albert = Albert_Sans({
   subsets: ["latin"],
-  variable: "--font-manrope",
+  variable: "--font-albert",
   display: "swap",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — ${site.tagline}`,
+    default: `${site.name} — Premium Cleaning Services in Nigeria`,
     template: `%s — ${site.name}`,
   },
   description: site.description,
   keywords: [
-    "digital skills academy",
-    "WordPress course",
-    "copywriting course",
-    "Facebook Ads course",
-    "WhatsApp marketing",
-    "TikTok marketing",
-    "freelancing course",
-    "learn digital marketing",
+    "cleaning services Calabar",
+    "premium cleaning Calabar",
+    "home cleaning Calabar",
+    "commercial cleaning Cross River",
+    "executive housekeeping Calabar",
+    "post construction cleaning",
+    "move in move out cleaning",
+    "office cleaning Calabar",
   ],
   openGraph: {
     type: "website",
     url: site.url,
     siteName: site.name,
-    title: `${site.name} — ${site.tagline}`,
+    title: `${site.name} — Premium Cleaning Services in Nigeria`,
     description: site.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} — ${site.tagline}`,
+    title: `${site.name} — Premium Cleaning Services in Nigeria`,
     description: site.description,
   },
   robots: { index: true, follow: true },
@@ -57,35 +57,32 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-/** Structured data: organization, course catalog and FAQ. */
+/** Structured data: local business, service catalog and FAQ. */
 function JsonLd() {
   const data = {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "EducationalOrganization",
+        "@type": "LocalBusiness",
+        "@id": `${site.url}/#business`,
         name: site.name,
         url: site.url,
         description: site.description,
-        email: site.email,
+        telephone: "+2349139192450",
+        priceRange: "₦40,000 – ₦200,000",
+        areaServed: { "@type": "Country", name: "Nigeria" },
         sameAs: site.socials.map((s) => s.href),
-      },
-      ...courses.map((course) => ({
-        "@type": "Course",
-        name: course.title,
-        description: course.description,
-        provider: { "@type": "EducationalOrganization", name: site.name, url: site.url },
-        hasCourseInstance: {
-          "@type": "CourseInstance",
-          courseMode: "online",
-          courseWorkload: `PT${parseInt(course.duration) * 5}H`,
-        },
-        offers: {
+        makesOffer: services.map((service) => ({
           "@type": "Offer",
-          category: "Paid",
-          availability: "https://schema.org/InStock",
-        },
-      })),
+          itemOffered: {
+            "@type": "Service",
+            name: service.title,
+            description: service.description,
+            provider: { "@id": `${site.url}/#business` },
+          },
+          priceCurrency: "NGN",
+        })),
+      },
       {
         "@type": "FAQPage",
         mainEntity: faqs.map((faq) => ({
@@ -114,13 +111,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${fraunces.variable} ${manrope.variable}`}
+      className={`${cormorant.variable} ${albert.variable}`}
       suppressHydrationWarning
     >
       <body>
         <a
           href="#main"
-          className="sr-only z-[110] rounded-full bg-royal px-6 py-3 text-sm font-semibold text-white focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
+          className="sr-only z-[110] rounded-full bg-emerald px-6 py-3 text-sm font-semibold text-white focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
         >
           Skip to content
         </a>
